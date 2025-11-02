@@ -39,7 +39,7 @@ This project uses only the Python standard library. No `pip install` is required
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/carb0nedo/HTTPS-Server.git
+git clone https://github.com/carb0ned0/HTTP-Server.git
 cd HTTPS-Server
 ```
 
