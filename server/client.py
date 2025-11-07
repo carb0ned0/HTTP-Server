@@ -1,7 +1,8 @@
 import argparse
 import os
 import socket
-import  ssl
+import ssl
+import time
 
 SERVER_ADDRESS = 'localhost', 8443
 REQUEST = b"""\
@@ -26,6 +27,12 @@ def main(max_clients, max_conns):
                 socks.append(sock)
                 print(f'Client {client_num}, Connection {connection_num}')
                 os._exit(0)
+    for sock in socks:
+        sock.close()
+    time.sleep(1)
+    print("Waiting for 1 second...")
+    # Sleep for 1 second (can be a float for fractions of a second)
+    print("Done waiting.")
 
 
 if __name__ == '__main__':

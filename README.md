@@ -65,6 +65,8 @@ WSGIServer: Serving HTTP on port 8443 ...
 Server is running (non-blocking with selectors)...
 ```
 
+![Server Run Output](/img/running%20server.png)
+
 ## How to Test
 
 You can test the server in three ways:
@@ -75,6 +77,8 @@ You can test the server in three ways:
 2. Your browser will show a security warning ("Your connection is not private"). This is expected because we are using a self-signed certificate. Click **"Advanced"** and then **"Proceed to localhost (unsafe)"**.
 3. You should see the `index.html` page, and the `sample.mp4` video should stream correctly.
 4. You can test the WSGI application by visiting **`https://localhost:8443/hello`**.
+
+![Web Browser Output](/img/Web%20Browser%20output.png)
 
 ### 2. Automated Test Script (Recommended)
 
@@ -90,29 +94,7 @@ chmod +x test.sh
 
 You should see a successful output as the script tests static files, range requests, and HEAD requests:
 
-```bash
-🔍 Testing static file access...
-
- hello.txt:
-This is a plain text file.
-
- index.html:
-<!DOCTYPE html>
-<html>
-...
-</html>
-
- Range request (sample.mp4 if exists):
-$ftypisomisomi
-
- HEAD request:
-HTTP/1.1 200 OK
-Content-Type: text/plain
-Content-Length: 27
-...
-
-✅ Done.
-```
+![Automated Test Run Output](/img/test%20script%20output.png)
 
 ### 3. Load Testing
 
@@ -124,6 +106,8 @@ python server/client.py --max-clients 5 --max-conns 100
 ```
 
 You will see output in the client terminal (`Client 0, Connection 0...`) and a flood of requests in your server terminal, demonstrating its ability to handle concurrent connections.
+
+![Load testing Output](/img/load%20testing%20output.png)
 
 ## How It Works
 
